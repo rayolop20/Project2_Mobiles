@@ -20,12 +20,13 @@ class _FirstScreenState extends State<FirstScreen> {
         title: const Text.rich(
           TextSpan(
             text: "Application",
-            style: TextStyle(color: Color.fromARGB(255, 231, 231, 192)),
+            style: TextStyle(color: Color.fromARGB(255, 245, 245, 223)),
           ),
         ),
-        backgroundColor: const Color.fromARGB(255, 68, 68, 68),
+        backgroundColor: const Color.fromARGB(1000,65,65,65),
+        
       ),
-      backgroundColor: const Color.fromARGB(255, 105, 105, 105),
+      backgroundColor: const Color.fromARGB(1000,140, 140, 140),
       body: Column(
         children: const [
           Padding(padding: EdgeInsets.only(top: 20)),
