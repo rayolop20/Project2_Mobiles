@@ -1,6 +1,6 @@
 {
-    "name": "projecte2_mobiles",
-    "short_name": "projecte2_mobiles",
+    "name": "hello_firebase",
+    "short_name": "hello_firebase",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

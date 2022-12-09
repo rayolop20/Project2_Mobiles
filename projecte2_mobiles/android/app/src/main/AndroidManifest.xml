@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.projecte2_mobiles">
+    package="com.example.hello_firebase">
    <application
-        android:label="projecte2_mobiles"
+        android:label="hello_firebase"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
