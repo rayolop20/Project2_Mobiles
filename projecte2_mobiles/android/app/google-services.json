@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "779944238261",
-    "project_id": "projecte2mobiles",
-    "storage_bucket": "projecte2mobiles.appspot.com"
+    "project_number": "222577564944",
+    "project_id": "projecte2-mobiles",
+    "storage_bucket": "projecte2-mobiles.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:779944238261:android:552d3cc8db1333c6fdf2fc",
+        "mobilesdk_app_id": "1:222577564944:android:2fe3e0699e97aabc93d995",
         "android_client_info": {
-          "package_name": "com.example.projecte2mobiles"
+          "package_name": "com.dragonriders.projecte2mobiles"
         }
       },
       "oauth_client": [
         {
-          "client_id": "779944238261-6n3daa51fqlb0h2i064crkj40q1okjt0.apps.googleusercontent.com",
+          "client_id": "222577564944-chi274v472ljvr6ilhdgio8js2jek8i5.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyASkT5dzAw2kNRdK6yXooX-O0hkoJwLrZM"
+          "current_key": "AIzaSyD8CAiX2pIXNHJBBXLYth1EhyZWmG7X14s"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "779944238261-6n3daa51fqlb0h2i064crkj40q1okjt0.apps.googleusercontent.com",
+              "client_id": "222577564944-chi274v472ljvr6ilhdgio8js2jek8i5.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
