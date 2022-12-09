@@ -14,7 +14,8 @@ class _MovimentsArtisticsState extends State<MovimentsArtistics> {
   Widget build(BuildContext context) {
     return Container(
       decoration: const BoxDecoration(
-        color: Color.fromARGB(255, 68, 68, 68),
+        color: Color.fromARGB(1000, 65,65,65),
+      
       ),
       padding: const EdgeInsets.all(20),
       child: Column(
@@ -25,7 +26,7 @@ class _MovimentsArtisticsState extends State<MovimentsArtistics> {
                 TextSpan(
                   text: "Moviments Artistics",
                   style: TextStyle(
-                      color: Color.fromARGB(255, 231, 231, 192), fontSize: 18),
+                      color: Color.fromARGB(255, 245, 245, 223), fontSize: 18),
                 ),
               ),
             ],
@@ -34,12 +35,24 @@ class _MovimentsArtisticsState extends State<MovimentsArtistics> {
           Expanded(
             child: Container(
               decoration: const BoxDecoration(
-                color: Color.fromARGB(255, 91, 93, 94),
+                color: Color.fromARGB(232, 140, 140, 140),
+                borderRadius: BorderRadius.only(
+                  topRight: Radius.circular(30),
+                  topLeft: Radius.circular(30),
+                  bottomLeft: Radius.circular(30),
+                  bottomRight: Radius.circular(30),
+                ),
               ),
               padding: const EdgeInsets.all(7),
               child: Container(
                 decoration: const BoxDecoration(
-                  color: Color.fromARGB(255, 68, 68, 68),
+                  color: Color.fromARGB(1000, 65,65,65),
+                  borderRadius: BorderRadius.only(
+                    topRight: Radius.circular(30),
+                    topLeft: Radius.circular(30),
+                    bottomLeft: Radius.circular(30),
+                    bottomRight: Radius.circular(30),
+                  ),
                 ),
               ),
             ),

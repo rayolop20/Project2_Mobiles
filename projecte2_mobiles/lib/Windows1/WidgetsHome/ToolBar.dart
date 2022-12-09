@@ -10,18 +10,26 @@ class ToolBar extends StatelessWidget {
     return Container(
       decoration: const BoxDecoration(
         color: Color.fromARGB(255, 68, 68, 68),
+        borderRadius: BorderRadius.only(
+                topRight: Radius.circular(30),
+                topLeft: Radius.circular(30),
+               ),
       ),
       child: Row(
         children: [
           Expanded(
             child: Container(
               decoration: const BoxDecoration(
-                color: Color.fromARGB(255, 122, 116, 116),
+                color: Color.fromARGB(255, 140, 140, 140),
+               borderRadius: BorderRadius.only(
+                topRight: Radius.circular(30),
+                topLeft: Radius.circular(30),
+               ),
               ),
               child: const Center(
                 child: Icon(
                   Icons.home,
-                  color: Color.fromARGB(255, 231, 231, 192),
+                  color: Color.fromARGB(255, 245, 245, 223),
                   size: 30,
                 ),
               ),
@@ -35,7 +43,7 @@ class ToolBar extends StatelessWidget {
               child: const Center(
                 child: Icon(
                   Icons.zoom_in,
-                  color: Color.fromARGB(255, 231, 231, 192),
+                  color: Color.fromARGB(255, 245, 245, 223),
                   size: 30,
                 ),
               ),
@@ -49,7 +57,7 @@ class ToolBar extends StatelessWidget {
               child: const Center(
                 child: Icon(
                   Icons.turned_in,
-                  color: Color.fromARGB(255, 231, 231, 192),
+                  color: Color.fromARGB(255, 245, 245, 223),
                   size: 30,
                 ),
               ),
