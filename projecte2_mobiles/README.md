@@ -1,4 +1,4 @@
-# hello_firebase
+# projecte2_mobiles
 
 A new Flutter project.
 
