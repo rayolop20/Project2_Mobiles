@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:projecte2_mobiles/Windows1/HomeWindow.dart';
+import 'package:projecte2_mobiles/Windows/HomeWindow.dart';
 import 'package:projecte2_mobiles/firebase_options.dart';
+
+import 'Windows/ProfilesWindow.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -17,8 +19,12 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: FirstScreen(),
+    return MaterialApp(
+      initialRoute: '/Home',
+      routes: {
+        '/Home': (_) => const FirstScreen(),
+        '/Profile': (_) => const ProfileScreen(),
+      },
     );
   }
 }
