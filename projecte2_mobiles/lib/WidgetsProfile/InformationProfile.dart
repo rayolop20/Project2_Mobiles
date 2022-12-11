@@ -27,13 +27,13 @@ class InformationProfile extends StatelessWidget {
         snapshot.data!; //Extreure dades del AsyncSnapshot
         return Column(
           children: [
-            Container(
-              width: 500,
-              height: 150,
-              decoration: const BoxDecoration(
-                image: DecorationImage(
-                  image: AssetImage(
-                    'assets/banner.png',
+            Expanded(
+              child: Container(
+                decoration: const BoxDecoration(
+                  image: DecorationImage(
+                    image: AssetImage(
+                      'assets/banner.png',
+                    ),
                   ),
                 ),
               ),
