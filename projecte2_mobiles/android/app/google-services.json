@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "222577564944",
-    "project_id": "projecte2-mobiles",
-    "storage_bucket": "projecte2-mobiles.appspot.com"
+    "project_number": "18680925842",
+    "project_id": "dm-terrassa-2022",
+    "storage_bucket": "dm-terrassa-2022.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:222577564944:android:2fe3e0699e97aabc93d995",
+        "mobilesdk_app_id": "1:18680925842:android:76f938edcaa131c40ce04b",
         "android_client_info": {
-          "package_name": "com.dragonriders.projecte2mobiles"
+          "package_name": "com.example.projecte2_mobiles"
         }
       },
       "oauth_client": [
         {
-          "client_id": "222577564944-chi274v472ljvr6ilhdgio8js2jek8i5.apps.googleusercontent.com",
+          "client_id": "18680925842-qfc0poffvb5rvp6c1po2clldd07cmtsb.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyD8CAiX2pIXNHJBBXLYth1EhyZWmG7X14s"
+          "current_key": "AIzaSyDa90ZrY8ogAa_vGlkN3gIZt8vELXndVG0"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "222577564944-chi274v472ljvr6ilhdgio8js2jek8i5.apps.googleusercontent.com",
+              "client_id": "18680925842-qfc0poffvb5rvp6c1po2clldd07cmtsb.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
