@@ -26,8 +26,15 @@ class User extends StatelessWidget {
                     width: 55,
                     height: 55,
                     decoration: const BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.all(Radius.circular(50))),
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(50),
+                      ),
+                      image: DecorationImage(
+                        image: AssetImage(
+                          'assets/perfil.jpg',
+                        ),
+                      ),
+                    ),
                   ),
                   const Padding(padding: EdgeInsets.only(left: 12)),
                   StreamBuilder(
