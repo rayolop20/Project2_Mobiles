@@ -18,28 +18,30 @@ class _FirstScreenState extends State<FirstScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 105, 105, 105),
-      body: Column(
-        children: const [
-          Expanded(
-            flex: 1,
-            child: User(),
-          ),
-          Padding(padding: EdgeInsets.only(top: 20)),
-          Expanded(
-            flex: 6,
-            child: Recientes(),
-          ),
-          Padding(padding: EdgeInsets.only(top: 20)),
-          Expanded(
-            flex: 6,
-            child: MovimentsArtistics(),
-          ),
-          Padding(padding: EdgeInsets.only(top: 20)),
-          Expanded(
-            flex: 1,
-            child: ToolBar(),
-          )
-        ],
+      body: SafeArea(
+        child: Column(
+          children: const [
+            Expanded(
+              flex: 1,
+              child: User(),
+            ),
+            Padding(padding: EdgeInsets.only(top: 20)),
+            Expanded(
+              flex: 6,
+              child: Recientes(),
+            ),
+            Padding(padding: EdgeInsets.only(top: 20)),
+            Expanded(
+              flex: 6,
+              child: MovimentsArtistics(),
+            ),
+            Padding(padding: EdgeInsets.only(top: 20)),
+            Expanded(
+              flex: 1,
+              child: ToolBar(),
+            )
+          ],
+        ),
       ),
     );
   }

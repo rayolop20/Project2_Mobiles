@@ -19,7 +19,6 @@ class User extends StatelessWidget {
             child: Container(
               width: 180,
               height: 60,
-              //color: Colors.amber, //comprovador d'on es la box
               child: Row(
                 children: [
                   const Padding(padding: EdgeInsets.only(left: 12)),
@@ -51,7 +50,7 @@ class User extends StatelessWidget {
                       return Text(
                         docSnap['Nickname'],
                         style: const TextStyle(
-                          fontSize: 20,
+                          fontSize: 19,
                           color: Color.fromARGB(255, 231, 231, 192),
                         ),
                         //selectionColor: Color.fromARGB(255, 68, 68, 68),
