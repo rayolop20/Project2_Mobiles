@@ -38,10 +38,11 @@ class InformationProfile extends StatelessWidget {
                 ),
               ),
             ),
-            const SizedBox(height: 20),
+            const Padding(
+              padding: EdgeInsets.only(top: 20),
+            ),
             Row(
               children: [
-                const SizedBox(width: 10),
                 Container(
                   width: 150,
                   height: 150,
@@ -56,37 +57,40 @@ class InformationProfile extends StatelessWidget {
                     ),
                   ),
                 ),
-                const SizedBox(width: 40),
                 Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Row(
                       children: [
+                        const Padding(padding: EdgeInsets.only(left: 10)),
                         const Text(
                           "Nickname: ",
                           style: TextStyle(
-                            fontSize: 20,
+                            fontSize: 18,
                             fontWeight: FontWeight.bold,
                             color: Color.fromARGB(255, 245, 245, 223),
                           ),
                         ),
-                        const SizedBox(width: 10),
+                        const Padding(padding: EdgeInsets.only(left: 5)),
                         Text(
                           docSnap['Nickname'],
                           style: const TextStyle(
-                            fontSize: 20,
+                            fontSize: 18,
                             color: Color.fromARGB(255, 245, 245, 223),
                           ),
                         ),
                       ],
                     ),
-                    const SizedBox(height: 10),
+                    const Padding(
+                      padding: EdgeInsets.only(top: 10),
+                    ),
                     Row(
                       children: [
-                        const SizedBox(width: 35),
+                        Padding(padding: EdgeInsets.only(left: 10)),
                         const Text(
                           "Name: ",
                           style: TextStyle(
-                            fontSize: 20,
+                            fontSize: 18,
                             fontWeight: FontWeight.bold,
                             color: Color.fromARGB(255, 245, 245, 223),
                           ),
@@ -95,7 +99,7 @@ class InformationProfile extends StatelessWidget {
                         Text(
                           docSnap['Nombre'],
                           style: const TextStyle(
-                            fontSize: 20,
+                            fontSize: 18,
                             color: Color.fromARGB(255, 245, 245, 223),
                           ),
                         ),
@@ -103,7 +107,7 @@ class InformationProfile extends StatelessWidget {
                         Text(
                           docSnap['Apellido1'],
                           style: const TextStyle(
-                            fontSize: 20,
+                            fontSize: 18,
                             color: Color.fromARGB(255, 245, 245, 223),
                           ),
                         ),
@@ -111,7 +115,7 @@ class InformationProfile extends StatelessWidget {
                         Text(
                           docSnap['Apellido2'],
                           style: const TextStyle(
-                            fontSize: 20,
+                            fontSize: 18,
                             color: Color.fromARGB(255, 245, 245, 223),
                           ),
                         ),
@@ -121,7 +125,7 @@ class InformationProfile extends StatelessWidget {
                 ),
               ],
             ),
-            const SizedBox(height: 30),
+            Padding(padding: EdgeInsets.only(left: 30)),
             const Text(
               'Description',
               style: TextStyle(
