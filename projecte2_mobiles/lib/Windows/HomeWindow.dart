@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:projecte2_mobiles/WidgetsHome/IconButton.dart';
 import '../WidgetsHome/MovimentsArtistics.dart';
 import '../WidgetsHome/Recientes.dart';
-import '../WidgetsHome/ToolBar.dart';
+import '../ToolBar/ToolBar.dart';
 
 class FirstScreen extends StatefulWidget {
   const FirstScreen({
