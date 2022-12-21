@@ -24,7 +24,6 @@ class MyApp extends StatelessWidget {
       routes: {
         '/Home': (_) => const FirstScreen(),
         '/Profile': (_) => const ProfileScreen(),
-        '/Search': (_) => const SearchWindows(),
       },
     );
   }

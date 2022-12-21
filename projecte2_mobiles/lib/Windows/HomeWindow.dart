@@ -116,7 +116,7 @@ class _FirstScreenState extends State<FirstScreen> {
             ),
             const SizedBox(
               height: 60,
-              child: ToolBar(state: 0),
+              child: ToolBar(),
             )
           ],
         ),

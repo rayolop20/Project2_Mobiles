@@ -48,7 +48,7 @@ class _SearchWindows extends State<SearchWindows> {
             ),
             const SizedBox(
               height: 60,
-              child: ToolBar(state: 1),
+              child: ToolBar(),
             )
           ],
         ),
