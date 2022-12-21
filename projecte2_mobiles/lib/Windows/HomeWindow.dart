@@ -114,10 +114,10 @@ class _FirstScreenState extends State<FirstScreen> {
                 ),
               ),
             ),
-            const SizedBox(
+            /*const SizedBox(
               height: 60,
               child: ToolBar(),
-            )
+            )*/
           ],
         ),
       ),
