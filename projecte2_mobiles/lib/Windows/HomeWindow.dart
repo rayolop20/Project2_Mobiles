@@ -38,7 +38,7 @@ class _FirstScreenState extends State<FirstScreen> {
             Padding(padding: EdgeInsets.only(top: 20)),
             Expanded(
               flex: 1,
-              child: ToolBar(),
+              child: ToolBar(state: 0),
             )
           ],
         ),

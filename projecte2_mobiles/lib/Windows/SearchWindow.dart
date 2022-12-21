@@ -46,7 +46,7 @@ class _SearchWindows extends State<SearchWindows> {
             const Padding(padding: EdgeInsets.only(top: 20)),
             const Expanded(
               flex: 1,
-              child: ToolBar(),
+              child: ToolBar(state: 1),
             )
           ],
         ),
