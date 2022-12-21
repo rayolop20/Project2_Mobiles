@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:projecte2_mobiles/WidgetsProfile/InformationProfile.dart';
-
+import 'package:projecte2_mobiles/Widgets/WidgetsProfile/InformationProfile.dart';
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({
     Key? key,

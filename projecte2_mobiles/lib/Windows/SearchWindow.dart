@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:projecte2_mobiles/ToolBar/ToolBar.dart';
+import 'package:projecte2_mobiles/Widgets/ToolBar/ToolBar.dart';
 
 class SearchWindows extends StatefulWidget {
   const SearchWindows({
@@ -11,14 +11,17 @@ class SearchWindows extends StatefulWidget {
 }
 
 class _SearchWindows extends State<SearchWindows> {
+  TextEditingController Scher = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 105, 105, 105),
       body: SafeArea(
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Expanded(
+            SizedBox(
+              height: 70,
               child: Container(
                 decoration: const BoxDecoration(
                   color: Color.fromARGB(1000, 65, 65, 65),
@@ -38,19 +41,34 @@ class _SearchWindows extends State<SearchWindows> {
                 ),
               ),
             ),
-            const Padding(padding: EdgeInsets.only(top: 20)),
-            Expanded(
-              flex: 6,
-              child: Container(),
+            //Material(elevation: 40, child: Row( children: [TextField(controller: Scher)],),),
+            const SizedBox(
+              height: 600,
+              child: SearchResults(),
             ),
-            const Padding(padding: EdgeInsets.only(top: 20)),
-            const Expanded(
-              flex: 1,
+            const SizedBox(
+              height: 60,
               child: ToolBar(state: 1),
             )
           ],
         ),
       ),
+    );
+  }
+}
+
+class SearchResults extends StatelessWidget {
+  const SearchResults({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(
+        color: Color.fromARGB(1000, 65, 65, 65),
+      ),
+
     );
   }
 }
