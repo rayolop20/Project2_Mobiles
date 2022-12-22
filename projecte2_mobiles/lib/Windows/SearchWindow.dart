@@ -46,10 +46,6 @@ class _SearchWindows extends State<SearchWindows> {
               height: 600,
               child: SearchResults(),
             ),
-            const SizedBox(
-              height: 60,
-              child: ToolBar(),
-            )
           ],
         ),
       ),
@@ -68,7 +64,6 @@ class SearchResults extends StatelessWidget {
       decoration: BoxDecoration(
         color: Color.fromARGB(1000, 65, 65, 65),
       ),
-
     );
   }
 }

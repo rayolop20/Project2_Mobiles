@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 
+import 'package:flutter/material.dart';
+import 'package:projecte2_mobiles/Windows/HomeWindow.dart';
+import 'package:projecte2_mobiles/Windows/SearchWindow.dart';
 
 class ToolBar extends StatefulWidget {
-  const ToolBar({
-    Key? key,
-  }) : super(key: key);
+  const ToolBar({super.key});
 
   @override
   State<ToolBar> createState() => _ToolBarState();
@@ -12,6 +13,17 @@ class ToolBar extends StatefulWidget {
 
 class _ToolBarState extends State<ToolBar> {
   int _selectedIndex = 0;
+  static const TextStyle optionStyle =
+      TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
+  static const List<Widget> _widgetOptions = <Widget>[
+    FirstScreen(),
+    SearchWindows(),
+    Text(
+      'Index 2: School',
+      style: optionStyle,
+    ),
+  ];
+
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
@@ -21,8 +33,11 @@ class _ToolBarState extends State<ToolBar> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      body: Center(
+        child: _widgetOptions.elementAt(_selectedIndex),
+      ),
       bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: Color.fromARGB(255,68, 68, 68),
+        backgroundColor: Color.fromARGB(255, 68, 68, 68),
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
@@ -41,7 +56,6 @@ class _ToolBarState extends State<ToolBar> {
         selectedItemColor: Colors.white,
         onTap: _onItemTapped,
       ),
-
     );
   }
 }

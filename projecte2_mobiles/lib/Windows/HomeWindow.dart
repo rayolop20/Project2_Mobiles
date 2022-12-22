@@ -18,7 +18,7 @@ class _FirstScreenState extends State<FirstScreen> {
       backgroundColor: const Color.fromARGB(255, 105, 105, 105),
       body: SafeArea(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          //mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             const SizedBox(
               height: 70,
@@ -114,10 +114,6 @@ class _FirstScreenState extends State<FirstScreen> {
                 ),
               ),
             ),
-            /*const SizedBox(
-              height: 60,
-              child: ToolBar(),
-            )*/
           ],
         ),
       ),

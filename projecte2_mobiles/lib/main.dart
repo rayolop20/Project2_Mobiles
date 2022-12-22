@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:projecte2_mobiles/Windows/HomeWindow.dart';
+import 'package:projecte2_mobiles/Widgets/ToolBar/ToolBar.dart';
 import 'package:projecte2_mobiles/Windows/ProfilesWindow.dart';
-import 'package:projecte2_mobiles/Windows/SearchWindow.dart';
 import 'package:projecte2_mobiles/firebase_options.dart';
 
 void main() async {
@@ -22,7 +21,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       initialRoute: '/Home',
       routes: {
-        '/Home': (_) => const FirstScreen(),
+        '/Home': (_) => const ToolBar(),
         '/Profile': (_) => const ProfileScreen(),
       },
     );
