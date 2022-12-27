@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter/material.dart';
 import 'package:projecte2_mobiles/Windows/HomeWindow.dart';
+import 'package:projecte2_mobiles/Windows/MarkersWindows.dart';
 import 'package:projecte2_mobiles/Windows/SearchWindow.dart';
 
 class ToolBar extends StatefulWidget {
@@ -18,10 +19,7 @@ class _ToolBarState extends State<ToolBar> {
   static const List<Widget> _widgetOptions = <Widget>[
     FirstScreen(),
     SearchWindows(),
-    Text(
-      'Index 2: School',
-      style: optionStyle,
-    ),
+    MarkersWindows(),
   ];
 
   void _onItemTapped(int index) {

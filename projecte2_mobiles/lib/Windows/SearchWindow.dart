@@ -1,3 +1,5 @@
+import 'dart:html';
+
 import 'package:flutter/material.dart';
 import 'package:projecte2_mobiles/Widgets/ToolBar/ToolBar.dart';
 
@@ -18,7 +20,6 @@ class _SearchWindows extends State<SearchWindows> {
       backgroundColor: const Color.fromARGB(255, 105, 105, 105),
       body: SafeArea(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             SizedBox(
               height: 70,
@@ -43,8 +44,12 @@ class _SearchWindows extends State<SearchWindows> {
             ),
             //Material(elevation: 40, child: Row( children: [TextField(controller: Scher)],),),
             const SizedBox(
-              height: 600,
+              height: 50,
               child: SearchResults(),
+            ),
+            const SizedBox(
+              height: 783,
+              child: ListSearcher(),
             ),
           ],
         ),
@@ -53,16 +58,93 @@ class _SearchWindows extends State<SearchWindows> {
   }
 }
 
-class SearchResults extends StatelessWidget {
+class ListSearcher extends StatefulWidget {
+  const ListSearcher({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  State<ListSearcher> createState() => _ListSearcherState();
+}
+
+class _ListSearcherState extends State<ListSearcher> {
+  bool Guardat = false;
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: const BoxDecoration(
+        color: Color.fromARGB(255, 65, 65, 65),
+      ),
+      child: Column(
+        children: [
+          SizedBox(
+            height: 100,
+            child: Container(
+              decoration: BoxDecoration(color: Colors.amber),
+              child: GestureDetector(
+                onTap: (() {
+                  setState(() {
+                    if (Guardat == false) {
+                      Guardat = true;
+                    } else {
+                      Guardat = false;
+                    }
+                  });
+                }),
+                child: Row(
+                  children: [
+                    Container(
+                      width: 55,
+                      height: 55,
+                      decoration: const BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(50),
+                        ),
+                      ),
+                    ),
+                    Text("name"),
+                    Icon(
+                      (Guardat == true) ? Icons.turned_in : Icons.turned_in_not,
+                    )
+                  ],
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class SearchResults extends StatefulWidget {
   const SearchResults({
     Key? key,
   }) : super(key: key);
 
   @override
+  State<SearchResults> createState() => _SearchResultsState();
+}
+
+class _SearchResultsState extends State<SearchResults> {
+  TextEditingController Searcher = TextEditingController();
+
+  @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(
-        color: Color.fromARGB(1000, 65, 65, 65),
+      decoration: const BoxDecoration(
+        color: Color.fromARGB(255, 113, 113, 113),
+      ),
+      child: Row(
+        children: [
+          Expanded(
+            child: TextField(
+              controller: Searcher,
+              decoration: const InputDecoration(labelText: 'Buscar...'),
+            ),
+          ),
+        ],
       ),
     );
   }
