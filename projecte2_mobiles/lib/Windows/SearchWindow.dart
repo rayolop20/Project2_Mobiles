@@ -48,7 +48,7 @@ class _SearchWindows extends State<SearchWindows> {
               child: SearchResults(),
             ),
             const SizedBox(
-              height: 783,
+              height: 595,
               child: ListSearcher(),
             ),
           ],
@@ -78,7 +78,7 @@ class _ListSearcherState extends State<ListSearcher> {
       child: Column(
         children: [
           SizedBox(
-            height: 100,
+            height: 70,
             child: Container(
               decoration: BoxDecoration(color: Colors.amber),
               child: GestureDetector(
@@ -91,23 +91,28 @@ class _ListSearcherState extends State<ListSearcher> {
                     }
                   });
                 }),
-                child: Row(
-                  children: [
-                    Container(
-                      width: 55,
-                      height: 55,
-                      decoration: const BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.all(
-                          Radius.circular(50),
+                child: Container(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Container(
+                        width: 55,
+                        height: 55,
+                        decoration: const BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.all(
+                            Radius.circular(50),
+                          ),
                         ),
                       ),
-                    ),
-                    Text("name"),
-                    Icon(
-                      (Guardat == true) ? Icons.turned_in : Icons.turned_in_not,
-                    )
-                  ],
+                      Text("name"),
+                      Icon(
+                        (Guardat == true)
+                            ? Icons.turned_in
+                            : Icons.turned_in_not,
+                      )
+                    ],
+                  ),
                 ),
               ),
             ),
