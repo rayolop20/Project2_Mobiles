@@ -18,14 +18,14 @@ class _FirstScreenState extends State<FirstScreen> {
       backgroundColor: const Color.fromARGB(255, 105, 105, 105),
       body: SafeArea(
         child: Column(
-          //mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             const SizedBox(
               height: 70,
               child: User(),
             ),
             SizedBox(
-              height: 310,
+              height: 400,
               child: Container(
                 decoration: const BoxDecoration(
                   color: Color.fromARGB(1000, 65, 65, 65),
@@ -70,7 +70,7 @@ class _FirstScreenState extends State<FirstScreen> {
               ),
             ),
             SizedBox(
-              height: 310,
+              height: 400,
               child: Container(
                 decoration: const BoxDecoration(
                   color: Color.fromARGB(1000, 65, 65, 65),
@@ -114,6 +114,7 @@ class _FirstScreenState extends State<FirstScreen> {
                 ),
               ),
             ),
+            const Padding(padding: EdgeInsets.only(top: 5)),
           ],
         ),
       ),

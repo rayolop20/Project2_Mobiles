@@ -1,6 +1,9 @@
 import 'dart:html';
 
 import 'package:flutter/material.dart';
+import 'package:projecte2_mobiles/Models/Searcher.dart';
+import 'package:projecte2_mobiles/Widgets/WidgetsSearcher/Files.dart';
+import 'package:projecte2_mobiles/Widgets/WidgetsSearcher/SearcherBar.dart';
 import 'package:projecte2_mobiles/Widgets/ToolBar/ToolBar.dart';
 
 class SearchWindows extends StatefulWidget {
@@ -13,7 +16,6 @@ class SearchWindows extends StatefulWidget {
 }
 
 class _SearchWindows extends State<SearchWindows> {
-  TextEditingController Scher = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -47,10 +49,19 @@ class _SearchWindows extends State<SearchWindows> {
               height: 50,
               child: SearchResults(),
             ),
-            const SizedBox(
-              height: 783,
-              child: ListSearcher(),
-            ),
+            SearcherSnapshot(builder: (colecions) {
+              return Column(children: [
+                SizedBox(
+                  height: 783,
+                  child: ListView.builder(
+                    padding: const EdgeInsets.all(5.0),
+                    itemCount: colecions.length,
+                    itemBuilder: (context, index) =>
+                        ListSearcher(coleccions: colecions[index]),
+                  ),
+                ),
+              ]);
+            }),
           ],
         ),
       ),
@@ -58,94 +69,24 @@ class _SearchWindows extends State<SearchWindows> {
   }
 }
 
-class ListSearcher extends StatefulWidget {
-  const ListSearcher({
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  State<ListSearcher> createState() => _ListSearcherState();
-}
-
-class _ListSearcherState extends State<ListSearcher> {
-  bool Guardat = false;
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      decoration: const BoxDecoration(
-        color: Color.fromARGB(255, 65, 65, 65),
-      ),
-      child: Column(
-        children: [
-          SizedBox(
-            height: 100,
-            child: Container(
-              decoration: BoxDecoration(color: Colors.amber),
-              child: GestureDetector(
-                onTap: (() {
-                  setState(() {
-                    if (Guardat == false) {
-                      Guardat = true;
-                    } else {
-                      Guardat = false;
-                    }
-                  });
-                }),
-                child: Row(
-                  children: [
-                    Container(
-                      width: 55,
-                      height: 55,
-                      decoration: const BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.all(
-                          Radius.circular(50),
-                        ),
-                      ),
-                    ),
-                    Text("name"),
-                    Icon(
-                      (Guardat == true) ? Icons.turned_in : Icons.turned_in_not,
-                    )
-                  ],
-                ),
-              ),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-class SearchResults extends StatefulWidget {
-  const SearchResults({
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  State<SearchResults> createState() => _SearchResultsState();
-}
-
-class _SearchResultsState extends State<SearchResults> {
-  TextEditingController Searcher = TextEditingController();
+class SearcherSnapshot extends StatelessWidget {
+  final Widget Function(List<Coleccions>) builder;
+  const SearcherSnapshot({super.key, required this.builder});
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: const BoxDecoration(
-        color: Color.fromARGB(255, 113, 113, 113),
-      ),
-      child: Row(
-        children: [
-          Expanded(
-            child: TextField(
-              controller: Searcher,
-              decoration: const InputDecoration(labelText: 'Buscar...'),
-            ),
-          ),
-        ],
-      ),
+    return StreamBuilder(
+      stream: getColeccions(),
+      builder:
+          (BuildContext context, AsyncSnapshot<List<Coleccions>> snapshot) {
+        if (snapshot.hasError) {
+          return ErrorWidget(snapshot.error.toString());
+        }
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return const Center(child: CircularProgressIndicator());
+        }
+        return builder(snapshot.data!);
+      },
     );
   }
 }

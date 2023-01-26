@@ -2,6 +2,9 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 
+import '../Widgets/WidgetsSearcher/Files.dart';
+import 'SearchWindow.dart';
+
 class MarkersWindows extends StatefulWidget {
   const MarkersWindows({
     Key? key,
@@ -49,26 +52,19 @@ class _MarkersWindows extends State<MarkersWindows> {
                 ),
               ),
             ),
-            SizedBox(
-              height: 783,
-              child: Container(
-                decoration: const BoxDecoration(
-                  color: Color.fromARGB(255, 65, 65, 65),
+            SearcherSnapshot(builder: (colecions) {
+              return Column(children: [
+                SizedBox(
+                  height: 783,
+                  child: ListView.builder(
+                    padding: const EdgeInsets.all(5.0),
+                    itemCount: colecions.length,
+                    itemBuilder: (context, index) =>
+                        ListSearcher(coleccions: colecions[index]),
+                  ),
                 ),
-                child: ListView.builder(
-                  itemCount: saver.length,
-                  itemBuilder: (context, index) {
-                    final slist = saver[index];
-                    return ListTile(
-                      title: Text("Name: ${slist.name}"),
-                      onTap: () {
-                        setState(() {});
-                      },
-                    );
-                  },
-                ),
-              ),
-            ),
+              ]);
+            }),
           ],
         ),
       ),
