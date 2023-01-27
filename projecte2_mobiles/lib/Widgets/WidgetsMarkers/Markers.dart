@@ -1,34 +1,24 @@
-import 'dart:math';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:projecte2_mobiles/Models/Guardats.dart';
-import 'package:projecte2_mobiles/Models/Searcher.dart';
 
-class ListSearcher extends StatefulWidget {
-  final Coleccions coleccions;
-  //final ElementsGuardats eguard;
-  const ListSearcher({super.key, required this.coleccions});
+class ListMarkers extends StatefulWidget {
+  final ElementsGuardats eguardats;
+  const ListMarkers({super.key, required this.eguardats});
 
   @override
-  State<ListSearcher> createState() => _ListSearcherState();
+  State<ListMarkers> createState() => _ListMarkersState();
 }
 
-class _ListSearcherState extends State<ListSearcher> {
-  void _afegeixLlibre() {
+class _ListMarkersState extends State<ListMarkers> {
+  @override
+  void _EliminarLlibre() {
     final db = FirebaseFirestore.instance;
-    if (widget.coleccions.saved == true) {
-      db.collection("/Libreria/ocKGv4Qk3LQJultmTmvC/Guardats").add({
-        'Name': widget.coleccions.name, //han de estar creats al firebase
-        'Guardat': true,
-      });
+    if (widget.eguardats.saved == false) {
+      //Navigator.of(context).pop();
     }
-    /*if (widget.coleccions.saved == false) {
-      db.collection("/Libreria/ocKGv4Qk3LQJultmTmvC/Guardats/${widget.eguard.id}").
-    }*/
   }
 
-  @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(top: 5),
@@ -40,16 +30,17 @@ class _ListSearcherState extends State<ListSearcher> {
           height: 100,
           child: GestureDetector(
             onTap: () {
-              if (widget.coleccions.saved == false) {
+              if (widget.eguardats.saved == false) {
+                debugPrint('si');
                 setState(
-                    () => widget.coleccions.saved = !widget.coleccions.saved);
-                widget.coleccions.guardat();
-                _afegeixLlibre();
-              } else if (widget.coleccions.saved == true) {
+                    () => widget.eguardats.saved = !widget.eguardats.saved);
+                widget.eguardats.guardat();
+              } else if (widget.eguardats.saved == true) {
+                debugPrint('no');
                 setState(
-                    () => widget.coleccions.saved = !widget.coleccions.saved);
-                widget.coleccions.notGuardat();
-                _afegeixLlibre();
+                    () => widget.eguardats.saved = !widget.eguardats.saved);
+                widget.eguardats.notGuardat();
+                _EliminarLlibre;
               }
             },
             child: Container(
@@ -68,9 +59,9 @@ class _ListSearcherState extends State<ListSearcher> {
                       ),
                     ),
                   ),
-                  Text(widget.coleccions.name),
+                  Text(widget.eguardats.name),
                   Icon(
-                    widget.coleccions.saved
+                    widget.eguardats.saved
                         ? Icons.turned_in
                         : Icons.turned_in_not,
                     color: Colors.white,

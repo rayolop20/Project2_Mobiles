@@ -1,8 +1,7 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
+import 'package:projecte2_mobiles/Models/Guardats.dart';
+import 'package:projecte2_mobiles/Widgets/WidgetsMarkers/Markers.dart';
 
-import '../Widgets/WidgetsSearcher/Files.dart';
 import 'SearchWindow.dart';
 
 class MarkersWindows extends StatefulWidget {
@@ -52,15 +51,15 @@ class _MarkersWindows extends State<MarkersWindows> {
                 ),
               ),
             ),
-            SearcherSnapshot(builder: (colecions) {
+            MarkerSnapshot(builder: (guardatf) {
               return Column(children: [
                 SizedBox(
                   height: 783,
                   child: ListView.builder(
                     padding: const EdgeInsets.all(5.0),
-                    itemCount: colecions.length,
+                    itemCount: guardatf.length,
                     itemBuilder: (context, index) =>
-                        ListSearcher(coleccions: colecions[index]),
+                        ListMarkers(eguardats: guardatf[index]),
                   ),
                 ),
               ]);
@@ -68,6 +67,28 @@ class _MarkersWindows extends State<MarkersWindows> {
           ],
         ),
       ),
+    );
+  }
+}
+
+class MarkerSnapshot extends StatelessWidget {
+  final Widget Function(List<ElementsGuardats>) builder;
+  const MarkerSnapshot({super.key, required this.builder});
+
+  @override
+  Widget build(BuildContext context) {
+    return StreamBuilder(
+      stream: getMColeccions(),
+      builder: (BuildContext context,
+          AsyncSnapshot<List<ElementsGuardats>> snapshot) {
+        if (snapshot.hasError) {
+          return ErrorWidget(snapshot.error.toString());
+        }
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return const Center(child: CircularProgressIndicator());
+        }
+        return builder(snapshot.data!);
+      },
     );
   }
 }
