@@ -7,7 +7,6 @@ import 'package:projecte2_mobiles/Models/Searcher.dart';
 
 class ListSearcher extends StatefulWidget {
   final Coleccions coleccions;
-  //final ElementsGuardats eguard;
   const ListSearcher({super.key, required this.coleccions});
 
   @override
@@ -23,9 +22,11 @@ class _ListSearcherState extends State<ListSearcher> {
         'Guardat': true,
       });
     }
-    /*if (widget.coleccions.saved == false) {
-      db.collection("/Libreria/ocKGv4Qk3LQJultmTmvC/Guardats/${widget.eguard.id}").
-    }*/
+    if (widget.coleccions.saved == false) {
+      //db.collection("/Libreria/ocKGv4Qk3LQJultmTmvC/Guardats")
+      //.doc("${widget.eguard.id}")
+      //.delete();
+    }
   }
 
   @override
