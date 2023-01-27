@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:projecte2_mobiles/Widgets/ToolBar/ToolBar.dart';
+import 'package:projecte2_mobiles/Widgets/WidgetsHome/BooksWidget.dart';
 import 'package:projecte2_mobiles/Widgets/WidgetsHome/IconButton.dart';
+
+import '../Models/Books.dart';
 
 class FirstScreen extends StatefulWidget {
   const FirstScreen({
@@ -17,105 +20,80 @@ class _FirstScreenState extends State<FirstScreen> {
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 105, 105, 105),
       body: SafeArea(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            const SizedBox(
-              height: 70,
-              child: User(),
-            ),
-            SizedBox(
-              height: 400,
-              child: Container(
-                decoration: const BoxDecoration(
-                  color: Color.fromARGB(1000, 65, 65, 65),
+        child: FutureBuilder(
+          future: loadBooksList(),
+          builder: (context, AsyncSnapshot<List<Books>> snapshot) {
+            if (snapshot.hasError) {
+              return ErrorWidget(snapshot.error.toString());
+            }
+            if (!snapshot.hasData) {
+              return const Center(child: CircularProgressIndicator());
+            }
+            final bookList = snapshot.data!;
+            return Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                const SizedBox(
+                  height: 70,
+                  child: User(),
                 ),
-                padding: const EdgeInsets.all(20),
-                child: Column(
-                  children: [
-                    Row(
-                      children: const [
-                        Text.rich(
-                          TextSpan(
-                            text: "Recientes",
-                            style: TextStyle(
-                                color: Color.fromARGB(255, 245, 245, 223),
-                                fontSize: 18),
-                          ),
-                        ),
-                      ],
+                SizedBox(
+                  height: 850,
+                  child: Container(
+                    decoration: const BoxDecoration(
+                      color: Color.fromARGB(1000, 65, 65, 65),
                     ),
-                    const Padding(padding: EdgeInsets.only(top: 5)),
-                    Expanded(
-                      child: Container(
-                        decoration: const BoxDecoration(
-                          color: Color.fromARGB(1000, 140, 140, 140),
-                          borderRadius: BorderRadius.all(
-                            Radius.circular(30),
-                          ),
+                    padding: const EdgeInsets.all(20),
+                    child: Column(
+                      children: [
+                        Row(
+                          children: const [
+                            Text.rich(
+                              TextSpan(
+                                text: "Books",
+                                style: TextStyle(
+                                    color: Color.fromARGB(255, 245, 245, 223),
+                                    fontSize: 18),
+                              ),
+                            ),
+                          ],
                         ),
-                        padding: const EdgeInsets.all(7),
-                        child: Container(
-                          decoration: const BoxDecoration(
-                            color: Color.fromARGB(1000, 65, 65, 65),
-                            borderRadius: BorderRadius.all(
-                              Radius.circular(30),
+                        const Padding(padding: EdgeInsets.only(top: 5)),
+                        Expanded(
+                          child: Container(
+                            decoration: const BoxDecoration(
+                              color: Color.fromARGB(232, 140, 140, 140),
+                              borderRadius: BorderRadius.all(
+                                Radius.circular(30),
+                              ),
+                            ),
+                            padding: const EdgeInsets.all(7),
+                            child: Container(
+                              decoration: const BoxDecoration(
+                                color: Color.fromARGB(1000, 65, 65, 65),
+                                borderRadius: BorderRadius.all(
+                                  Radius.circular(30),
+                                ),
+                              ),
+                              child: GridView.builder(
+                                gridDelegate:
+                                    const SliverGridDelegateWithFixedCrossAxisCount(
+                                        crossAxisCount: 3),
+                                itemCount: bookList.length,
+                                itemBuilder: ((context, index) =>
+                                    BookWidget(book: bookList[index])),
+                              ),
                             ),
                           ),
-                        ),
-                      ),
-                    )
-                  ],
-                ),
-              ),
-            ),
-            SizedBox(
-              height: 400,
-              child: Container(
-                decoration: const BoxDecoration(
-                  color: Color.fromARGB(1000, 65, 65, 65),
-                ),
-                padding: const EdgeInsets.all(20),
-                child: Column(
-                  children: [
-                    Row(
-                      children: const [
-                        Text.rich(
-                          TextSpan(
-                            text: "Moviments Artistics",
-                            style: TextStyle(
-                                color: Color.fromARGB(255, 245, 245, 223),
-                                fontSize: 18),
-                          ),
-                        ),
+                        )
                       ],
                     ),
-                    const Padding(padding: EdgeInsets.only(top: 5)),
-                    Expanded(
-                      child: Container(
-                        decoration: const BoxDecoration(
-                          color: Color.fromARGB(232, 140, 140, 140),
-                          borderRadius: BorderRadius.all(
-                            Radius.circular(30),
-                          ),
-                        ),
-                        padding: const EdgeInsets.all(7),
-                        child: Container(
-                          decoration: const BoxDecoration(
-                            color: Color.fromARGB(1000, 65, 65, 65),
-                            borderRadius: BorderRadius.all(
-                              Radius.circular(30),
-                            ),
-                          ),
-                        ),
-                      ),
-                    )
-                  ],
+                  ),
                 ),
-              ),
-            ),
-            const Padding(padding: EdgeInsets.only(top: 5)),
-          ],
+                const Padding(padding: EdgeInsets.only(top: 5)),
+              ],
+            );
+          },
         ),
       ),
     );
