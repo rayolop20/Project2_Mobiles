@@ -1,6 +1,8 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
+import 'package:projecte2_mobiles/Models/Guardats.dart';
+import 'package:projecte2_mobiles/Widgets/WidgetsMarkers/Markers.dart';
+
+import 'SearchWindow.dart';
 
 class MarkersWindows extends StatefulWidget {
   const MarkersWindows({
@@ -49,29 +51,44 @@ class _MarkersWindows extends State<MarkersWindows> {
                 ),
               ),
             ),
-            SizedBox(
-              height: 783,
-              child: Container(
-                decoration: const BoxDecoration(
-                  color: Color.fromARGB(255, 65, 65, 65),
+            MarkerSnapshot(builder: (guardatf) {
+              return Column(children: [
+                SizedBox(
+                  height: 783,
+                  child: ListView.builder(
+                    padding: const EdgeInsets.all(5.0),
+                    itemCount: guardatf.length,
+                    itemBuilder: (context, index) =>
+                        ListMarkers(eguardats: guardatf[index]),
+                  ),
                 ),
-                child: ListView.builder(
-                  itemCount: saver.length,
-                  itemBuilder: (context, index) {
-                    final slist = saver[index];
-                    return ListTile(
-                      title: Text("Name: ${slist.name}"),
-                      onTap: () {
-                        setState(() {});
-                      },
-                    );
-                  },
-                ),
-              ),
-            ),
+              ]);
+            }),
           ],
         ),
       ),
+    );
+  }
+}
+
+class MarkerSnapshot extends StatelessWidget {
+  final Widget Function(List<ElementsGuardats>) builder;
+  const MarkerSnapshot({super.key, required this.builder});
+
+  @override
+  Widget build(BuildContext context) {
+    return StreamBuilder(
+      stream: getMColeccions(),
+      builder: (BuildContext context,
+          AsyncSnapshot<List<ElementsGuardats>> snapshot) {
+        if (snapshot.hasError) {
+          return ErrorWidget(snapshot.error.toString());
+        }
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return const Center(child: CircularProgressIndicator());
+        }
+        return builder(snapshot.data!);
+      },
     );
   }
 }
