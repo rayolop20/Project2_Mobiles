@@ -4,7 +4,7 @@ import 'package:http/http.dart' as http;
 
 
 class Books{
-  String title, description, author, imgUrl;
+  String title, description, author, imgUrl,linkUrl;
   int imgWidth, imgHeight;
   Books({
     required this.title, 
@@ -13,6 +13,7 @@ class Books{
     required this.imgUrl,
     required this.imgWidth,
     required this.imgHeight,
+    required this.linkUrl,
   });
   Books.fromJson(Map<String, dynamic> json)
       : title = json["title"] ?? "No title",
@@ -20,7 +21,8 @@ class Books{
         author = json["author"] ?? "No format",
         imgUrl = json["book_image"] ?? "No format",
         imgWidth = json["book_image_width"] ?? 0,
-        imgHeight = json["book_image_height"] ?? 0;
+        imgHeight = json["book_image_height"] ?? 0,
+        linkUrl = json["amazon_product_url"] ?? 0;
         //pageCount = json["pageCount"] ?? "No page count",
        // thumbnailPath = json["thumbnail"]["path"] ?? "No image",
         //thumbnailExt = json["thumbnail"]["extension"] ?? "No extension";

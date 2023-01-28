@@ -75,14 +75,6 @@ class _FirstScreenState extends State<FirstScreen> {
                                   Radius.circular(30),
                                 ),
                               ),
-                              child: GridView.builder(
-                                gridDelegate:
-                                    const SliverGridDelegateWithFixedCrossAxisCount(
-                                        crossAxisCount: 3),
-                                itemCount: bookList.length,
-                                itemBuilder: ((context, index) =>
-                                    BookWidget(book: bookList[index])),
-                              ),
                             ),
                           ),
                         )

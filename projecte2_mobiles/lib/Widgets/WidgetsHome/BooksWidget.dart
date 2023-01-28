@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:projecte2_mobiles/Models/Books.dart';
+import 'package:projecte2_mobiles/Windows/BookWindow.dart';
 
 class BookWidget extends StatelessWidget {
   const BookWidget({
@@ -11,18 +12,21 @@ class BookWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-        splashColor: Colors.blueGrey,
-        onTap: () {},
-        child: Container(
-          height: book.imgHeight as double,
-          width: book.imgWidth as double,
-          decoration: const BoxDecoration(
-            borderRadius: BorderRadius.all(
-              Radius.circular(30),
-            ),
+    const Padding(padding: EdgeInsets.only(top: 5));
+    return ListTile(
+      onTap: () {
+         Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) =>  BookScreen(book:book),
+        
           ),
-          child: Image.network(book.imgUrl),
-        ));
+          );
+      },
+      title: Text(book.title),
+      subtitle: Text(book.author),
+      textColor: const Color.fromARGB(255, 195, 195, 170),
+      hoverColor: Color.fromARGB(255, 48, 48, 49),
+    );
+    
   }
 }
