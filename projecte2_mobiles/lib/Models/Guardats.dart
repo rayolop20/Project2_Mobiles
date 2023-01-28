@@ -3,21 +3,21 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 class ElementsGuardats {
   String id;
   String name;
-  bool saved;
+  String autor;
+  String description;
+  String imageURL;
+  String linkURL;
 
   ElementsGuardats.fromfirestore(DocumentSnapshot<Map<String, dynamic>> doc)
       : id = doc.id,
         name = doc['Name'],
-        saved = doc['Guardat'];
-
-  bool get notFilaitzat => !saved;
+        autor = doc['Autor'],
+        description = doc['Description'],
+        imageURL = doc['imgUrl'],
+        linkURL = doc['linkUrl'];
 
   get _ref => FirebaseFirestore.instance
       .doc("/Libreria/ocKGv4Qk3LQJultmTmvC/Guardats/$id");
-
-  finalitza() => _ref.update({'Guardat': true});
-  guardat() => _ref.update({'Guardat': true});
-  notGuardat() => _ref.update({'Guardat': false});
 }
 
 Stream<List<ElementsGuardats>> getMColeccions() async* {

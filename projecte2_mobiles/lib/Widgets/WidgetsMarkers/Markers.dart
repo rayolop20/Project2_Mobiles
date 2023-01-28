@@ -1,9 +1,12 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:projecte2_mobiles/Models/Books.dart';
 import 'package:projecte2_mobiles/Models/Guardats.dart';
+import 'package:projecte2_mobiles/Windows/BookWindow.dart';
 
 class ListMarkers extends StatefulWidget {
   final ElementsGuardats eguardats;
+
   const ListMarkers({super.key, required this.eguardats});
 
   @override
@@ -12,64 +15,49 @@ class ListMarkers extends StatefulWidget {
 
 class _ListMarkersState extends State<ListMarkers> {
   @override
+  bool saved = false;
   void _EliminarLlibre() {
     final db = FirebaseFirestore.instance;
-    if (widget.eguardats.saved == false) {
-      //Navigator.of(context).pop();
-    }
+    db
+        .doc("/Libreria/ocKGv4Qk3LQJultmTmvC/Guardats/${widget.eguardats.id}")
+        .delete();
   }
 
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(top: 5),
-      child: Container(
-        decoration: const BoxDecoration(
-          color: Color.fromARGB(255, 65, 65, 65),
-        ),
-        child: SizedBox(
-          height: 100,
-          child: GestureDetector(
-            onTap: () {
-              if (widget.eguardats.saved == false) {
-                debugPrint('si');
-                setState(
-                    () => widget.eguardats.saved = !widget.eguardats.saved);
-                widget.eguardats.guardat();
-              } else if (widget.eguardats.saved == true) {
-                debugPrint('no');
-                setState(
-                    () => widget.eguardats.saved = !widget.eguardats.saved);
-                widget.eguardats.notGuardat();
-                _EliminarLlibre;
-              }
-            },
-            child: Container(
-              decoration: BoxDecoration(color: Color.fromARGB(255, 65, 65, 65)),
-              padding: EdgeInsets.only(left: 10, right: 10),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Container(
-                    width: 55,
-                    height: 55,
-                    decoration: const BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.all(
-                        Radius.circular(50),
-                      ),
-                    ),
-                  ),
-                  Text(widget.eguardats.name),
-                  Icon(
-                    widget.eguardats.saved
-                        ? Icons.turned_in
-                        : Icons.turned_in_not,
-                    color: Colors.white,
-                  )
-                ],
-              ),
-            ),
+    Books book = Books(
+        title: '',
+        description: '',
+        author: '',
+        imgUrl: '',
+        imgWidth: 0,
+        imgHeight: 0,
+        linkUrl: '');
+    return ListTile(
+      onTap: () {
+        book.title = widget.eguardats.name;
+        book.description = widget.eguardats.description;
+        book.author = widget.eguardats.autor;
+        book.imgUrl = widget.eguardats.imageURL;
+        book.linkUrl = widget.eguardats.linkURL;
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => BookScreen(book: book),
           ),
+        );
+      },
+      onLongPress: () {
+        _EliminarLlibre();
+      },
+      title: Text(widget.eguardats.name),
+      subtitle: Text(widget.eguardats.autor),
+      textColor: const Color.fromARGB(255, 195, 195, 170),
+      hoverColor: const Color.fromARGB(255, 48, 48, 49),
+      trailing: const Text.rich(
+        TextSpan(
+          text: "Pulsar para abrir | Manten Pulsado Eliminar",
+          style: TextStyle(
+              color: Color.fromARGB(255, 245, 245, 223), fontSize: 12),
         ),
       ),
     );

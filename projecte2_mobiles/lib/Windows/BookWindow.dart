@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:projecte2_mobiles/Models/Books.dart';
-import 'package:projecte2_mobiles/Widgets/WidgetsHome/BooksWidget.dart';
 
 class BookScreen extends StatelessWidget {
   const BookScreen({

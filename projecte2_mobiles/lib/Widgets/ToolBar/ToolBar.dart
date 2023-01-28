@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:flutter/material.dart';
+import 'package:projecte2_mobiles/Models/Books.dart';
 import 'package:projecte2_mobiles/Windows/HomeWindow.dart';
 import 'package:projecte2_mobiles/Windows/MarkersWindows.dart';
 import 'package:projecte2_mobiles/Windows/SearchWindow.dart';
@@ -14,6 +15,7 @@ class ToolBar extends StatefulWidget {
 
 class _ToolBarState extends State<ToolBar> {
   int _selectedIndex = 0;
+  List<Books> snapshot = [];
   static const TextStyle optionStyle =
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
   static const List<Widget> _widgetOptions = <Widget>[

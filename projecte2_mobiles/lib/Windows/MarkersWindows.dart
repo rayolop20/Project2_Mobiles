@@ -1,14 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:projecte2_mobiles/Models/Books.dart';
 import 'package:projecte2_mobiles/Models/Guardats.dart';
 import 'package:projecte2_mobiles/Widgets/WidgetsMarkers/Markers.dart';
 
 import 'SearchWindow.dart';
 
 class MarkersWindows extends StatefulWidget {
-  const MarkersWindows({
-    Key? key,
-  }) : super(key: key);
-
+  const MarkersWindows({Key? key}) : super(key: key);
   @override
   State<MarkersWindows> createState() => _MarkersWindows();
 }
@@ -58,8 +56,9 @@ class _MarkersWindows extends State<MarkersWindows> {
                   child: ListView.builder(
                     padding: const EdgeInsets.all(5.0),
                     itemCount: guardatf.length,
-                    itemBuilder: (context, index) =>
-                        ListMarkers(eguardats: guardatf[index]),
+                    itemBuilder: (context, index) => ListMarkers(
+                      eguardats: guardatf[index],
+                    ),
                   ),
                 ),
               ]);
