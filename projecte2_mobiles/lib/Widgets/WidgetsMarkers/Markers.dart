@@ -55,7 +55,7 @@ class _ListMarkersState extends State<ListMarkers> {
       hoverColor: const Color.fromARGB(255, 48, 48, 49),
       trailing: const Text.rich(
         TextSpan(
-          text: "Pulsar para abrir | Manten Pulsado Eliminar",
+          text: "click: abrir | Manten: guardar",
           style: TextStyle(
               color: Color.fromARGB(255, 245, 245, 223), fontSize: 12),
         ),

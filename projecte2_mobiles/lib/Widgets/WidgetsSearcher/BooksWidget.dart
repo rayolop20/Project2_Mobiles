@@ -57,7 +57,7 @@ class _BookWidgetState extends State<BookWidget> {
       hoverColor: const Color.fromARGB(255, 48, 48, 49),
       trailing: const Text.rich(
         TextSpan(
-          text: "Pulsar para abrir | Manten Pulsado para guardar",
+          text: "click: abrir | Manten: guardar",
           style: TextStyle(
             color: Color.fromARGB(255, 245, 245, 223),
             fontSize: 12,
