@@ -23,12 +23,7 @@ class Books{
         imgWidth = json["book_image_width"] ?? 0,
         imgHeight = json["book_image_height"] ?? 0,
         linkUrl = json["amazon_product_url"] ?? 0;
-        //pageCount = json["pageCount"] ?? "No page count",
-       // thumbnailPath = json["thumbnail"]["path"] ?? "No image",
-        //thumbnailExt = json["thumbnail"]["extension"] ?? "No extension";
-
- // map(Container Function(dynamic item) param0) {}
-
+       
 }
 
 

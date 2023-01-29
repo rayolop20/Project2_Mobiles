@@ -4,6 +4,7 @@ import 'package:projecte2_mobiles/Widgets/ToolBar/ToolBar.dart';
 import 'package:projecte2_mobiles/Widgets/WidgetsHome/IconButton.dart';
 
 import '../Models/Books.dart';
+import '../Widgets/WidgetsSearcher/BooksWidget.dart';
 
 class FirstScreen extends StatefulWidget {
   const FirstScreen({
@@ -37,10 +38,8 @@ class _FirstScreenState extends State<FirstScreen> {
                   height: 70,
                   child: User(),
                 ),
-                Padding(padding: EdgeInsets.only(top: 5)),
+                const Padding(padding: EdgeInsets.only(top: 5)),
                 Expanded(
-                  //SizedBox(
-                  //height: 850,
                   child: Container(
                     decoration: const BoxDecoration(
                       color: Color.fromARGB(1000, 65, 65, 65),
@@ -52,7 +51,7 @@ class _FirstScreenState extends State<FirstScreen> {
                           children: const [
                             Text.rich(
                               TextSpan(
-                                text: "Books",
+                                text: "Recomendations",
                                 style: TextStyle(
                                     color: Color.fromARGB(255, 245, 245, 223),
                                     fontSize: 18),
@@ -75,6 +74,12 @@ class _FirstScreenState extends State<FirstScreen> {
                                 color: Color.fromARGB(1000, 65, 65, 65),
                                 borderRadius: BorderRadius.all(
                                   Radius.circular(30),
+                                ),
+                              ),
+                              height: 783,
+                              child: ListView.builder(
+                            itemCount: 3,
+                            itemBuilder: ((context, index) =>BookHome(book:  bookList[index])
                                 ),
                               ),
                             ),

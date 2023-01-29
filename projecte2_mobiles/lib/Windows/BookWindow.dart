@@ -13,10 +13,9 @@ class BookScreen extends StatelessWidget {
       backgroundColor: Color.fromARGB(1000, 65, 65, 65),
       appBar: AppBar(
         backgroundColor: Color.fromARGB(1000, 65, 65, 65),
-        title: const Text("Books"),
+        title: const Text("Book"),
       ),
       body: Column(
-        //crossAxisAlignment: CrossAxisAlignment.end,
         children: [
           const SizedBox(height: 20),
           Center(
