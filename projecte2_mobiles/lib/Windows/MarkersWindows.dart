@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:projecte2_mobiles/Models/Books.dart';
 import 'package:projecte2_mobiles/Models/Guardats.dart';
 import 'package:projecte2_mobiles/Widgets/WidgetsMarkers/Markers.dart';
-
-import 'SearchWindow.dart';
 
 class MarkersWindows extends StatefulWidget {
   const MarkersWindows({Key? key}) : super(key: key);
@@ -18,7 +15,6 @@ class SearchSaver {
 
 class _MarkersWindows extends State<MarkersWindows> {
   List<SearchSaver> saver = [];
-  TextEditingController Scher = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +33,7 @@ class _MarkersWindows extends State<MarkersWindows> {
                 child: Align(
                   alignment: Alignment.centerLeft,
                   child: Container(
-                    padding: EdgeInsets.only(left: 12),
+                    padding: const EdgeInsets.only(left: 12),
                     child: const Text(
                       "library",
                       style: TextStyle(
@@ -50,18 +46,15 @@ class _MarkersWindows extends State<MarkersWindows> {
               ),
             ),
             MarkerSnapshot(builder: (guardatf) {
-              return Column(children: [
-                SizedBox(
-                  height: 783,
-                  child: ListView.builder(
-                    padding: const EdgeInsets.all(5.0),
-                    itemCount: guardatf.length,
-                    itemBuilder: (context, index) => ListMarkers(
-                      eguardats: guardatf[index],
-                    ),
+              return Expanded(
+                child: ListView.builder(
+                  padding: const EdgeInsets.all(5.0),
+                  itemCount: guardatf.length,
+                  itemBuilder: (context, index) => ListMarkers(
+                    eguardats: guardatf[index],
                   ),
                 ),
-              ]);
+              );
             }),
           ],
         ),

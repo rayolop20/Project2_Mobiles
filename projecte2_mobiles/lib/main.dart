@@ -4,8 +4,6 @@ import 'package:projecte2_mobiles/Widgets/ToolBar/ToolBar.dart';
 import 'package:projecte2_mobiles/Windows/ProfilesWindow.dart';
 import 'package:projecte2_mobiles/firebase_options.dart';
 
-import 'Windows/BookWindow.dart';
-
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
@@ -25,7 +23,6 @@ class MyApp extends StatelessWidget {
       routes: {
         '/Home': (_) => const ToolBar(),
         '/Profile': (_) => const ProfileScreen(),
-        
       },
     );
   }

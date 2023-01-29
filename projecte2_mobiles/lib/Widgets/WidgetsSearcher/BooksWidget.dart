@@ -1,9 +1,8 @@
-import 'dart:ui';
+//import 'dart:ui';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:projecte2_mobiles/Models/Books.dart';
-import 'package:projecte2_mobiles/Models/Guardats.dart';
 import 'package:projecte2_mobiles/Windows/BookWindow.dart';
 
 class BookWidget extends StatefulWidget {
@@ -60,61 +59,9 @@ class _BookWidgetState extends State<BookWidget> {
         TextSpan(
           text: "Pulsar para abrir | Manten Pulsado para guardar",
           style: TextStyle(
-              color: Color.fromARGB(255, 245, 245, 223), fontSize: 12),
-        ),
-      ),
-    );
-  }
-}
-
-class BookHome extends StatelessWidget {
-  const BookHome({
-    Key? key,
-    required this.book,
-  }) : super(key: key);
-
-  final Books book;
-  @override
-  Widget build(BuildContext context) {
-    return InkWell(
-      onTap: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => BookScreen(book: book),
+            color: Color.fromARGB(255, 245, 245, 223),
+            fontSize: 12,
           ),
-        );
-      },
-      child: Padding(
-        padding: const EdgeInsets.all(20),
-        child: Row(
-          children: [
-            SizedBox(
-              height: 150,
-              width: 140,
-              child: Image.network(book.imgUrl),
-            ),
-            const SizedBox(
-              width: 10,
-            ),
-            Center(
-              child: Column(
-                children: [
-                  Text(
-                    book.title,
-                    style: const TextStyle(
-                      color: Color.fromARGB(255, 245, 245, 223),
-                    ),
-                    ), 
-                  Text(
-                    book.author,
-                    style: const TextStyle(
-                      color: Color.fromARGB(255, 245, 245, 223),
-                    ),
-                    )],
-              ),
-            ),
-          ],
         ),
       ),
     );

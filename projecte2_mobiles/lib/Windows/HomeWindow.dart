@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:projecte2_mobiles/Widgets/ToolBar/ToolBar.dart';
+import 'package:projecte2_mobiles/Widgets/WidgetsHome/BookHome.dart';
 
 import 'package:projecte2_mobiles/Widgets/WidgetsHome/IconButton.dart';
 
 import '../Models/Books.dart';
-import '../Widgets/WidgetsSearcher/BooksWidget.dart';
 
 class FirstScreen extends StatefulWidget {
   const FirstScreen({
@@ -78,9 +77,9 @@ class _FirstScreenState extends State<FirstScreen> {
                               ),
                               height: 783,
                               child: ListView.builder(
-                            itemCount: 3,
-                            itemBuilder: ((context, index) =>BookHome(book:  bookList[index])
-                                ),
+                                itemCount: 3,
+                                itemBuilder: ((context, index) =>
+                                    BookHome(book: bookList[index])),
                               ),
                             ),
                           ),

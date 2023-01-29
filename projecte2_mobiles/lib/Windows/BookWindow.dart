@@ -22,7 +22,7 @@ class BookScreen extends StatelessWidget {
             child: Text(
               book.title,
               style: const TextStyle(
-                  fontSize: 30,
+                  fontSize: 20,
                   color: Color.fromARGB(255, 153, 188, 205),
                   fontWeight: FontWeight.bold),
             ),
@@ -30,14 +30,15 @@ class BookScreen extends StatelessWidget {
           Text(
             book.author,
             style: const TextStyle(
-              fontSize: 25,
+              fontSize: 15,
               color: Color.fromARGB(255, 138, 158, 169),
             ),
           ),
-          const SizedBox(
-            height: 40,
+          const Padding(padding: EdgeInsets.only(top: 5)),
+          Image.network(
+            book.imgUrl,
+            scale: 1.5,
           ),
-          Image.network(book.imgUrl),
           Expanded(
             child: Container(
               decoration: const BoxDecoration(

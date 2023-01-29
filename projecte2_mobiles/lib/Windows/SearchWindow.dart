@@ -1,10 +1,7 @@
-import 'dart:html';
+//import 'dart:html';
 
 import 'package:flutter/material.dart';
-import 'package:projecte2_mobiles/Models/Searcher.dart';
 import 'package:projecte2_mobiles/Widgets/WidgetsSearcher/BooksWidget.dart';
-import 'package:projecte2_mobiles/Widgets/ToolBar/ToolBar.dart';
-import 'package:projecte2_mobiles/Windows/MarkersWindows.dart';
 
 import '../Models/Books.dart';
 
@@ -57,8 +54,8 @@ class _SearchWindows extends State<SearchWindows> {
                     ),
                   ),
                 ),
-                SizedBox(
-                  height: 783,
+                Expanded(
+                  //height: 783,
                   child: ListView.builder(
                     itemCount: bookList.length,
                     itemBuilder: ((context, index) => BookWidget(

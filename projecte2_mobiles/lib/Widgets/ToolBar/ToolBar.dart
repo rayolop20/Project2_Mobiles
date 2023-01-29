@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-
-import 'package:flutter/material.dart';
 import 'package:projecte2_mobiles/Models/Books.dart';
 import 'package:projecte2_mobiles/Windows/HomeWindow.dart';
 import 'package:projecte2_mobiles/Windows/MarkersWindows.dart';
